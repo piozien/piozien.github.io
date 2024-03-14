@@ -15973,7 +15973,7 @@ p {
 }
 
 .section-heading {
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .section-heading .section-heading-upper {
@@ -15984,8 +15984,9 @@ p {
 
 .section-heading .section-heading-lower {
   display: block;
-  font-size: 3rem;
+  font-size: medium;
   font-weight: 100;
+  font-family: Lora;
 }
 
 .bg-faded {
@@ -16174,5 +16175,8 @@ p {
 
 .footer {
   background-color: rgba(47,23,15,.9);
+}
+
+.section-heading-lower {
 }
 
