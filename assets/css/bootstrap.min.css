@@ -15987,6 +15987,7 @@ p {
   font-size: medium;
   font-weight: 100;
   font-family: Lora;
+  text-transform: none;
 }
 
 .bg-faded {
