@@ -8,7 +8,7 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-image: url('assets/img/system.jpeg');
+    background-image: url("assets/img/system.jpeg");
     background-size: cover;
     background-position: center;
 }
