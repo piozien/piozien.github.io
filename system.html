@@ -5,18 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rezerwacja i zamówienia w restauracji</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <nav class="navbar navbar-expand-lg bg-dark py-lg-4 navbar-dark" id="mainNav">
-        <div class="container"><a class="navbar-brand text-uppercase d-lg-none text-expanded" href="#">Projekt</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Strona Główna</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">O NAS</a></li>
-                    <li class="nav-item"><a class="nav-link" href="competition.html">Konkurencja</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="system.html">System</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -28,7 +16,7 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background-image: url('assets/img/system.jpng');
+            background-image: url('https://source.unsplash.com/1600x900/?restaurant');
             background-size: cover;
             background-position: center;
             background-blur: 5px;
@@ -110,9 +98,45 @@
         #placeOrderBtn:hover {
             background-color: #218838;
         }
+        /* Styling for navbar */
+        nav {
+            background-color: #343a40;
+            padding: 20px 0;
+        }
+        .navbar-brand {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .navbar-nav .nav-link {
+            color: #fff;
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #007bff;
+        }
     </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg bg-dark py-lg-4 navbar-dark" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand text-uppercase d-lg-none text-expanded" href="#">Projekt</a>
+            <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler">
+                <span class="visually-hidden">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Strona Główna</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">O NAS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="competition.html">Konkurencja</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="system.html">System</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <h1>Rezerwacja i zamówienia w restauracji</h1>
 
@@ -122,41 +146,4 @@
             <input type="text" id="name" name="name" required>
 
             <label for="email">Email:</label>
-            <input type="text" id="email" name="email" required>
-
-            <label for="date">Data rezerwacji:</label>
-            <input type="date" id="date" name="date" required>
-
-            <label for="time">Godzina rezerwacji:</label>
-            <input type="time" id="time" name="time" required>
-
-            <label for="guests">Liczba gości:</label>
-            <input type="number" id="guests" name="guests" required min="1">
-
-            <label for="table">Wybierz stolik:</label>
-            <select id="table" name="table" required>
-                <option value="" disabled selected>Wybierz stolik</option>
-                <option value="1">Stolik 1</option>
-                <option value="2">Stolik 2</option>
-                <option value="3">Stolik 3</option>
-                <option value="4">Stolik 4</option>
-            </select>
-
-            <button type="submit">Zarezerwuj stolik</button>
-        </form>
-
-        <h2>Składanie zamówienia</h2>
-        <form id="orderForm">
-            <label for="itemName">Wybierz danie:</label>
-            <select id="itemName" name="itemName" required>
-                <option value="" disabled selected>Wybierz danie</option>
-                <option value="Pizza">Pizza</option>
-                <option value="Pasta">Pasta</option>
-                <option value="Sałatka">Sałatka</option>
-                <option value="Kotlet schabowy">Kotlet schabowy</option>
-            </select>
-
-            <label for="quantity">Ilość:</label>
-            <input type="number" id="quantity" name="quantity" required>
-
-            <button type="submit
+            <input type="text" id="email"
