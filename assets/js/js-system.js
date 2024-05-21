@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             orderItem.classList.add('orderItem');
 
             const itemContent = `
-                <img src="https://via.placeholder.com/50" alt="${itemName}">
+                
                 <span><strong>${itemName}</strong> - ${quantity} szt.</span>
             `;
             orderItem.innerHTML = itemContent;
