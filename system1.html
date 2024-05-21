@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="pl" data-bss-forced-theme="light" style="font-size:12px;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Interfejs - PSI</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body style="background:linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url('assets/img/bg.jpg');">
+    <h1 class="text-center site-heading"><br><span>SYSTEM ZARZĄDZANIA REZERWACJAMI&nbsp;</span><br><span>I ZAMÓWIENIAMI W RESTAURACJI</span><br><br></h1>
+    <nav class="navbar navbar-expand-lg bg-dark py-lg-4 navbar-dark" id="mainNav">
+        <div class="container"><a class="navbar-brand text-uppercase d-lg-none text-expanded" href="#">Projekt</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Strona Główna</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">O NAS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="competition.html">Konkurencja</a></li>
+                    <li class="nav-item"><a class="nav-link" href="system.html">System</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container form-container">
+        <h2 class="text-center">Interfejs rezerwacji i składania zamówień</h2>
+        <h3><em>Rezerwacja stolika</em></h3>
+        <div class="d-flex me-auto bg-faded p-5 rounded">
+        <form id="reservationForm">
+            <div class="form-group"><label class="form-label" for="name">Imię i Nazwisko:</label><input class="form-control form-control" type="text" id="name" name="name" required=""></div>
+            <div class="form-group"><label class="form-label" for="email">Email:</label><input class="form-control form-control" type="email" id="email" name="email" required=""></div>
+            <div class="form-group"><label class="form-label" for="date">Data rezerwacji:</label><input class="form-control form-control" type="date" id="date" name="date" required=""></div>
+            <div class="form-group"><label class="form-label" for="time">Godzina rezerwacji:</label><input class="form-control form-control" type="time" id="time" name="time" required=""></div>
+            <div class="form-group"><label class="form-label" for="guests">Liczba gości:</label><input class="form-control form-control" type="number" id="guests" min="1" name="guests" required=""></div>
+            <div class="form-group"><label class="form-label" for="table">Wybierz stolik:</label><select class="form-control" id="table" name="table" required="">
+                    <option value="" selected="">Wybierz stolik</option>
+                    <option value="1">Stolik 1</option>
+                    <option value="2">Stolik 2</option>
+                    <option value="3">Stolik 3</option>
+                    <option value="4">Stolik 4</option>
+                
+        </form>
+         <!-- Formularz składania zamówienia -->
+         <div id="orderForm" class="mt-3" style="display: none;">
+            <h2>Składanie zamówienia</h2>
+            <form id="orderForm">
+                <label for="itemName">Wybierz danie:</label>
+                <select id="itemName" name="itemName" class="form-control" required>
+                    <option value="" disabled selected>Wybierz danie</option>
+                    <option value="Pizza">Pizza</option>
+                    <option value="Pasta">Pasta</option>
+                    <option value="Sałatka">Sałatka</option>
+                    <option value="Kotlet schabowy">Kotlet schabowy</option>
+                </select>
+                <label for="quantity">Ilość:</label>
+                <input type="number" id="quantity" name="quantity" class="form-control" required>
+                <button type="submit" class="btn btn-primary mt-2">Dodaj <i class="fas fa-plus"></i></button>
+            </form>
+            <div id="orderedItems" class="mt-3">
+                <h2>Zamówione dania:</h2>
+                <p id="noOrdersText">Brak dodanych dań.</p>
+            </div>
+            <div id="placeOrderButton">
+                <button id="placeOrderBtn" style="display: none;" class="btn btn-success mt-3">Zamów <i class="fas fa-shopping-cart"></i></button>
+            </div>
+        </div>
+        </div>  
+
+    </div>
+    
+    <footer class="text-center footer text-faded py-5">
+        <div class="container">
+            <p class="m-0 small">Konrad Zieliński &amp; Piotr Zienowicz&nbsp; - ISI5&nbsp;</p>
+        </div>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/js/current-day.js"></script>
+    <script src="assets/js/js-system.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="assets/js/js/scripts.js"></script>
+</body>
+
+</html>
