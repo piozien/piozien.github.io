@@ -47,5 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Dodanie dodatkowej logiki (np. potwierdzenie zamówienia)
         alert('Zamówienie zostało złożone!');
+        window.location.href = 'https://psi-szr.me/płatność.html';
     });
 });
