@@ -74,22 +74,22 @@ body {
 
 .content{
     margin: 60px auto; 
-    padding: 20px;
+    padding: 50px 30px;
     max-width: 800px; 
     background-color: rgba(52, 58, 64, 0.6);
     text-align: center;
-    border-radius: 50px;
+    border-radius: 10px;
 }
 
 .content h1 {
-    color: white; 
-    text-shadow: 
+    color: #f5b674; 
+    /*text-shadow: 
         -1.5px -1.5px 0 #000,  
          1.5px -1.5px 0 #000,
         -1.5px  1.5px 0 #000,
-         1.5px  1.5px 0 #000; 
+         1.5px  1.5px 0 #000; */
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
 }
 
 
@@ -100,6 +100,8 @@ body {
          1px -1px 0 #000,
         -1px  1px 0 #000,
          1px  1px 0 #000; 
+    text-align: left;
+    margin-top: 30px;
 }
 
 .content h3 {
@@ -114,6 +116,7 @@ body {
 .content h4{
     color: white;
     text-align: left;
+    font-size: 17px;
 }
 .content p {
     text-align: left;
