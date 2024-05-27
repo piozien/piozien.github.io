@@ -84,6 +84,7 @@ body {
   background-color: rgba(52, 58, 64, 0.7);
   text-align: center;
   border-radius: 10px;
+  position: relative;
 }
 
 .content h1 {
@@ -124,7 +125,7 @@ body {
   color: white;
   text-align: left;
 }
-.content ol  {
+.content ol {
   color: white;
   text-align: left;
 }
@@ -149,6 +150,79 @@ body {
   background: white;
   margin-top: 15px;
   border-radius: 10px;
+}
+.content-wrapper {
+  display: flex;
+}
+
+.content-wrapper > div {
+  text-align: center;
+  padding: 20px;
+}
+
+.content1 {
+  flex: 30%;
+}
+
+.content2 {
+  flex: 70%;
+}
+.content2 p {
+  text-align: left;
+  color: white;
+  text-indent: 0;
+}
+.bottom-button {
+  position: absolute; 
+  right: 20px;
+  bottom: -30px; 
+  z-index: 999;
+}
+
+.button {
+  margin: 30px auto;
+  padding: 30px;
+  max-width: fit-content; 
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  border-radius: 200px;
+  position: inherit;
+  display: inline-block;
+  margin-right: 100px; 
+}
+
+.button img {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+  margin-left: 10px;
+  
+}
+
+.button a {
+  color: #000000;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.button a:hover {
+  text-decoration: none;
+}
+
+
+.button a:hover,
+.button a:active,
+.button a:focus {
+  outline: 0;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 10px 0;
 }
 
 footer {
