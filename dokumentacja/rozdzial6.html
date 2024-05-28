@@ -48,20 +48,60 @@
       </div>
       <div class="content">
         <h2>Zarezerwuj stolik</h2>
-        <div class="content-wrapper">
-            <div class="content1">
-              <p>Nazwa przypadku</p>
-              <p>Cel</p>
-              <p>Aktorzy</p>
-            </div>
-            <div class="content2">
-              <p>Zarezerwuj stolik</p>
-              <p>Umożliwienie klientom rezerwacji stolika w restauracji na wybrany przez
-                nich termin i godzinę, zapewniając przy tym informacje o dostępności
-                stolików oraz możliwość wyboru preferowanego miejsca siedzenia.</p>
-            </div>
-          </div>
-        </div>
+        <table>
+          <tr>
+            <td>Nazwa przypadku</td>
+            <td>Zarezerwuj stolik</td>
+          </tr>
+          <tr>
+            <td>Cel</td>
+            <td>Umożliwienie klientom rezerwacji stolika w restauracji na wybrany przez
+              nich termin i godzinę, zapewniając przy tym informacje o dostępności
+              stolików oraz możliwość wyboru preferowanego miejsca siedzenia.</td>
+          </tr>
+          <tr>
+            <td>Aktorzy</td>
+            <td>Klient, Kelner</td>
+          </tr>
+          <tr>
+            <td>Scenariusz</td>
+            <td>
+              <ul>
+                
+              <li>
+                <span class="table-h">Główny</span>
+
+                <ol>
+                  <li>Użytkownik wchodzi na stronę i wybiera zakładkę rezerwacji</li>
+                  <li>System wyświetla dostępne daty i godziny</li>
+                  <li>Użytkownik wybiera odpowiadającą datę i godzinę</li>
+                  <li>System wyświetla dostępne stoliki i liczbę miejsc</li>
+                  <li>Użytkownik wybiera stolik</li>
+                  <li>System prosi o dane kontaktowe</li>
+                  <li>Użytkownik podaje dane kontaktowe</li>
+                  <li>System potwierdza rezerwacje</li>
+                </ol>
+              </li>
+              <li>
+                <span class="table-h">Alternatywy</span>
+
+                <div class="idents">
+                  <span class="indent">3a.,5a. Nie wybieram</span>
+                  <span class="indentx2">3a.1, 5a.1. Brak wyboru</span>
+                  <ol>
+                  <li value="2">System wyświetla dostępne daty i godziny</li>
+                  <br>
+                  <span class="indent">7a.1. Dane są niepoprawne</span>
+                  <span class="indent">7b.1. Brak danych</span>
+                  <li value="7">Użytkownik podaje dane kontaktowe</li>
+                  </ol>
+                </div>
+              </li>
+            </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
     
     <div class="diagram">
         <h2>Diagram czynności 1. Zarezerwuj stolik</h2>
@@ -79,6 +119,58 @@
     </div>
     <div class="content">
         <h2>Złóż zamówienie</h2>
+        <table>
+          <tr>
+            <td>Nazwa przypadku</td>
+            <td>Złóż zamówienie</td>
+          </tr>
+          <tr>
+            <td>Cel</td>
+            <td>Umożliwienie klientom rezerwacji stolika w restauracji na wybrany przez
+              nich termin i godzinę, zapewniając przy tym informacje o dostępności
+              stolików oraz możliwość wyboru preferowanego miejsca siedzenia.
+            </td>
+          </tr>
+          <tr>
+            <td>Aktorzy</td>
+            <td>Klient, Kelner</td>
+          </tr>
+          <tr>
+            <td>Scenariusz</td>
+            <td>
+              <ul>
+                
+              <li>
+                <span class="table-h">Główny</span>
+
+                <ol>
+                  <li>Użytkownik wybiera potrawę z menu i podaje ilość</li>
+                  <li>System wyświetla zawartość zamówienia i cenę</li>
+                  <li>Wybierz czychcesz zakończyć zamawianie lub
+                    edytować/anulować je</li>
+                  <li>System pyta się o potwierdzenie zamówienia</li>
+                  <li>Użytkownik potwierdza zamówienie lub anuluje je</li>
+                </ol>
+              </li>
+              <li>
+                <span class="table-h">Alternatywy</span>
+
+                <div class="idents">
+                  <span class="indent">3a. Usuń potrawę</span>
+                  <span class="indentx2">3a.1. Użytkownik wybiera potrawę do usunięcia</span>
+                  <span class="indentx2">3a.2. System potwierdza usunięcie</span>
+                  <ol>
+                  <li value="2">System wyświetla zawartość zamówienia i cenę</li>
+                  <br>
+                  <span class="indent">3b. Dodaj potrawę</span>
+                  <li value="1">Użytkownik wybiera potrawę z menu i podaje ilość</li>
+                  </ol>
+                </div>
+              </li>
+            </ul>
+            </td>
+          </tr>
+        </table>
     
     </div>
     <div class="diagram">
@@ -95,7 +187,88 @@
         </div>
         <div class="content">
             <h2>Realizuj płatność</h2>
-        
+           
+            <table>
+              <tr>
+                <td>Nazwa przypadku</td>
+                <td>Realizuj płatność</td>
+              </tr>
+              <tr>
+                <td>Cel</td>
+                <td>Umożliwienie klientom wygodnej i bezpiecznej realizacji płatności za
+                  zamówienia, z możliwością wyboru różnych metod płatności, takich jak
+                  karta kredytowa, płatność mobilna czy gotówka.
+                </td>
+              </tr>
+              <tr>
+                <td>Aktorzy</td>
+                <td>Klient, Kelner</td>
+              </tr>
+              <tr>
+                <td>Scenariusz</td>
+                <td>
+                  <ul>
+                    
+                  <li>
+                    <span class="table-h">Główny</span>
+    
+                    <ol>
+                      <li>System pyta o rodzaj potwierdzenia</li>
+                      <li>System podaje kwotę do zapłaty</li>
+                      <li>System pyta o sposób zapłaty</li>
+                      <li>System potwierdza zapłatę</li>
+                      <li>System pyta o potwierdzenie</li>
+                    </ol>
+                  </li>
+                  <li>
+                    <span class="table-h">Alternatywy</span>
+    
+                    <div class="idents">
+                      <span class="indent">1a. Faktura</span>
+                      <span class="indentx2">1a.1. System prosi o numer NIP</span>
+                      <span class="indentx3">1a.1/a. Błędny NIP</span>
+                      <span class="indentx3">1a.1/b. Poprawny NIP</span>
+                      <span class="indent">1a. Paragon</span>
+                      <ol>
+                      <li value="2">System podaje kwotę do zapłaty</li>
+                      <br>
+                      <span class="indent">3a. Gotówka</span>
+                      <span class="indentx2">3a.1. Użytkownik płaci gotówką</span>
+                      <span class="indentx2">3a.2. System sprawdza zgodność kwoty</span>
+                      <span class="indentx3">3a.3/a. Jest reszta</span>
+                      <span class="indentx4">- System wydaje resztę</span>
+                      <span class="indentx3">3a.3/b. Brak reszty</span>
+
+                      <span class="indent">3b. BLIK</span>
+                      <span class="indentx2">3b.1. System prosi o kod BLIK</span>
+                      <span class="indentx2">3b.2. Użytkownik podaje kod BLIK</span>
+                      <span class="indentx3">3b.2/a. Błędny kod</span>
+                      <span class="indentx3">3b.2/b. Poprawny kod</span>
+
+                      <span class="indent">3c. Karta płatnicza</span>
+                      <span class="indentx2">3c.1. System prosi o dane karty</span>
+                      <span class="indentx2">3c.2. Użytkownik podaje dane karty</span>
+                      <span class="indentx3">3c.2/a. Błędne dane</span>
+                      <span class="indentx3">3c.2/b. Nie przekroczono limitu płatności</span>
+                      <span class="indentx3_1">zbliżeniowej</span>
+                      <span class="indentx3">3c.2/c. Przekroczono limit płatności
+                      </span><span class="indentx3_1">zbliżeniowej</span>
+                      <span class="indentx4">-1. System prosi o podanie pinu</span>
+                      <span class="indentx4">-2. Użytkownik podaje pin</span>
+                      <span class="indentx5">-2a. Niepoprawny PIN</span>
+                      <span class="indent">4. System potwierdza zapłatę</span>
+                      <span class="indentx2">5a. Z potwierdzeniem</span>
+                      <span class="indentx3">5a.1. System drukuje potwierdzeniem</span>
+                      <span class="indentx2">5b. Bez potwierdzenia</span>
+
+                      
+                      </ol>
+                    </div>
+                  </li>
+                </ul>
+                </td>
+              </tr>
+            </table>
         </div>
         <div class="diagram">
             <h2>Diagram czynności 3. Realizuj płatność</h2>
@@ -111,7 +284,56 @@
         </div>
         <div class="content">
             <h2>Przejrzyj zamówienie</h2>
-        
+            <table>
+              <tr>
+                <td>Nazwa przypadku</td>
+                <td>Przejrzyj zamówienie</td>
+              </tr>
+              <tr>
+                <td>Cel</td>
+                <td>Zapewnienie kucharzom i kelnerom możliwości przeglądania szczegółów
+                  zamówień, w tym składników zamówionych potraw, statusu realizacji,
+                  łącznej kwoty do zapłaty oraz przewidywanego czasu dostawy lub
+                  odbioru. System powinien również umożliwiać edycję zamówienia w
+                  określonym czasie przed jego realizacją.
+                </td>
+              </tr>
+              <tr>
+                <td>Aktorzy</td>
+                <td>Kucharz, Kelner</td>
+              </tr>
+              <tr>
+                <td>Scenariusz</td>
+                <td>
+                  <ul>
+                    
+                  <li>
+                    <span class="table-h">Główny</span>
+    
+                    <ol>
+                      <li>System wyświetla listę zamówień</li>
+                      <li>Opuść system</li>
+                      
+                    </ol>
+                  </li>
+                  <li>
+                    <span class="table-h">Alternatywy</span>
+    
+                    <div class="idents">
+                      <span class="indent">1a. Użytkownik wybiera zamówienie</span>
+                      <span class="indentx2">1a.1. Powrót do listy</span>
+                      <span class="indentx2">1a.2. Zaznaczenie informacji o opóźnieniu</span>
+                      <span class="indentx2">1a.3. Odznaczenie gotowości potrawy/całego
+                        zamówienia</span>
+                      <ol>
+                      <li value="1">System wyświetla listę zamówień</li>
+                      </ol>
+                    </div>
+                  </li>
+                </ul>
+                </td>
+              </tr>
+            </table>
         </div>
         <div class="diagram">
             <h2>Diagram czynności 4. Przejrzyj zamówienie</h2>
