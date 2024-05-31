@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
@@ -18,14 +18,12 @@
         background-color: #f8f9fa;
         padding: 20px;
       }
-
       .header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 20px;
       }
-
       .time-info,
       .shift-end-time {
         font-size: 1.2em;
@@ -33,46 +31,41 @@
         padding: 5px 10px;
         border-radius: 5px;
       }
-
       .card {
         margin-bottom: 20px;
       }
-
       .order-status {
         font-size: 1.2em;
         margin-bottom: 10px;
       }
-
       .order-time {
         font-size: 1.2em;
         color: #6c757d;
       }
-
       .table-chair-info {
         font-size: 1.1em;
       }
-
       .dish-info {
         margin-top: 10px;
       }
-
       .dish-info strong {
         display: block;
         margin-bottom: 5px;
       }
-
       .status-buttons button {
         margin-right: 5px;
       }
-
-      .add-order-form {
+      .add-order-form,
+      .edit-order-form {
         background-color: #ffffffcc;
         padding: 20px;
         border-radius: 5px;
       }
+      .edit-order-form {
+        display: none;
+      }
     </style>
   </head>
-
   <body>
     <div class="header">
       <h1>Panel Pracowników Restauracji</h1>
@@ -85,7 +78,6 @@
         </div>
       </div>
     </div>
-
     <div class="container">
       <div class="row">
         <div class="col-md-8">
@@ -115,10 +107,15 @@
                   <button class="btn btn-info" onclick="changeStatus(1, 'Gotowe do odbioru')">
                     Gotowe do odbioru
                   </button>
+                  <button
+                    class="btn btn-secondary"
+                    onclick="editOrder(1, 5, 3, 'Pizza', 'Ser, pomidory, bazylia')"
+                  >
+                    Edytuj
+                  </button>
                 </div>
               </div>
             </div>
-            <!-- Można dodać więcej zamówień w ten sam sposób -->
           </div>
         </div>
         <div class="col-md-4">
@@ -135,31 +132,63 @@
               </div>
               <div class="form-group">
                 <label for="dish">Potrawa</label>
-                <input type="text" class="form-control" id="dish" name="dish" required />
+                <input type="text" class="form-control" id="dish" name="dish" />
               </div>
               <div class="form-group">
                 <label for="ingredients">Składniki</label>
+                <input type="text" class="form-control" id="ingredients" name="ingredients" />
+              </div>
+              <button type="submit" class="btn btn-primary">Dodaj zamówienie</button>
+            </form>
+          </div>
+          <div class="edit-order-form">
+            <h3>Edytuj zamówienie</h3>
+            <form id="editOrderForm">
+              <input type="hidden" id="editOrderId" />
+              <div class="form-group">
+                <label for="editTable">Stolik</label>
                 <input
-                  type="text"
+                  type="number"
                   class="form-control"
-                  id="ingredients"
-                  name="ingredients"
+                  id="editTable"
+                  name="editTable"
                   required
                 />
               </div>
-              <button type="submit" class="btn btn-primary">Dodaj zamówienie</button>
+              <div class="form-group">
+                <label for="editChair">Krzesło</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="editChair"
+                  name="editChair"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="editDish">Potrawa</label>
+                <input type="text" class="form-control" id="editDish" name="editDish" />
+              </div>
+              <div class="form-group">
+                <label for="editIngredients">Składniki</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editIngredients"
+                  name="editIngredients"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
             </form>
           </div>
         </div>
       </div>
     </div>
-
     <footer class="text-center footer text-faded py-5">
       <div class="container">
         <p class="m-0 small">Konrad Zieliński &amp; Piotr Zienowicz&nbsp; - ISI5&nbsp;</p>
       </div>
     </footer>
-
     <script>
       let orderCount = 1;
 
@@ -171,7 +200,7 @@
       function updateOrderTimes() {
         const now = new Date();
         document.getElementById("orderTime1").textContent = new Date(
-          now - 3600000,
+          now - 3600000
         ).toLocaleString(); // Zamówienie 1 złożone godzinę temu
       }
 
@@ -187,8 +216,9 @@
           const hours = Math.floor(diff / (1000 * 60 * 60));
           const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
           const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-          document.getElementById("timeToShiftEnd").textContent =
-            `Pozostało: ${hours}h ${minutes}m ${seconds}s`;
+          document.getElementById(
+            "timeToShiftEnd"
+          ).textContent = `Pozostało: ${hours}h ${minutes}m ${seconds}s`;
         }
       }
 
@@ -230,6 +260,7 @@
                             <button class="btn btn-success" onclick="changeStatus(${orderCount}, 'Zrealizowane')">Zrealizowane</button>
                             <button class="btn btn-warning" onclick="changeStatus(${orderCount}, 'W trakcie realizacji')">W trakcie realizacji</button>
                             <button class="btn btn-info" onclick="changeStatus(${orderCount}, 'Gotowe do odbioru')">Gotowe do odbioru</button>
+                            <button class="btn btn-secondary" onclick="editOrder(${orderCount}, ${table}, ${chair}, '${dish}', '${ingredients}')">Edytuj</button>
                         </div>
                     </div>
                 </div>
@@ -240,7 +271,40 @@
         document.getElementById("newOrderForm").reset();
       }
 
+      function editOrder(orderId, table, chair, dish, ingredients) {
+        document.getElementById("editOrderId").value = orderId;
+        document.getElementById("editTable").value = table;
+        document.getElementById("editChair").value = chair;
+        document.getElementById("editDish").value = dish;
+        document.getElementById("editIngredients").value = ingredients;
+
+        document.querySelector(".add-order-form").style.display = "none";
+        document.querySelector(".edit-order-form").style.display = "block";
+      }
+
+      function saveEditedOrder(event) {
+        event.preventDefault();
+
+        const orderId = document.getElementById("editOrderId").value;
+        const table = document.getElementById("editTable").value;
+        const chair = document.getElementById("editChair").value;
+        const dish = document.getElementById("editDish").value;
+        const ingredients = document.getElementById("editIngredients").value;
+
+        const orderCard = document.querySelector(`#orders .card:nth-child(${orderId})`);
+        orderCard.querySelector(
+          ".table-chair-info"
+        ).innerHTML = `<strong>Stolik:</strong> ${table}, <strong>Krzesło:</strong> ${chair}`;
+        orderCard.querySelector(
+          ".dish-info"
+        ).innerHTML = `<strong>Potrawa:</strong> ${dish}<strong>Składniki:</strong> ${ingredients}`;
+
+        document.querySelector(".edit-order-form").style.display = "none";
+        document.querySelector(".add-order-form").style.display = "block";
+      }
+
       document.getElementById("newOrderForm").addEventListener("submit", addOrder);
+      document.getElementById("editOrderForm").addEventListener("submit", saveEditedOrder);
 
       setInterval(updateTime, 1000);
       setInterval(updateShiftEndTime, 1000);
