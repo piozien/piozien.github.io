@@ -113,6 +113,7 @@
                   >
                     Edytuj
                   </button>
+                  <button class="btn btn-danger" onclick="deleteOrder(1)">Usuń</button>
                 </div>
               </div>
             </div>
@@ -132,11 +133,17 @@
               </div>
               <div class="form-group">
                 <label for="dish">Potrawa</label>
-                <input type="text" class="form-control" id="dish" name="dish" />
+                <input type="text" class="form-control" id="dish" name="dish" required />
               </div>
               <div class="form-group">
                 <label for="ingredients">Składniki</label>
-                <input type="text" class="form-control" id="ingredients" name="ingredients" />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="ingredients"
+                  name="ingredients"
+                  required
+                />
               </div>
               <button type="submit" class="btn btn-primary">Dodaj zamówienie</button>
             </form>
@@ -167,7 +174,7 @@
               </div>
               <div class="form-group">
                 <label for="editDish">Potrawa</label>
-                <input type="text" class="form-control" id="editDish" name="editDish" />
+                <input type="text" class="form-control" id="editDish" name="editDish" required />
               </div>
               <div class="form-group">
                 <label for="editIngredients">Składniki</label>
@@ -176,6 +183,7 @@
                   class="form-control"
                   id="editIngredients"
                   name="editIngredients"
+                  required
                 />
               </div>
               <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
@@ -238,7 +246,7 @@
         orderCount++;
 
         const orderHTML = `
-                <div class="card">
+                <div class="card" id="order${orderCount}">
                     <div class="card-header">
                         Zamówienie ${orderCount}
                     </div>
@@ -261,6 +269,7 @@
                             <button class="btn btn-warning" onclick="changeStatus(${orderCount}, 'W trakcie realizacji')">W trakcie realizacji</button>
                             <button class="btn btn-info" onclick="changeStatus(${orderCount}, 'Gotowe do odbioru')">Gotowe do odbioru</button>
                             <button class="btn btn-secondary" onclick="editOrder(${orderCount}, ${table}, ${chair}, '${dish}', '${ingredients}')">Edytuj</button>
+                            <button class="btn btn-danger" onclick="deleteOrder(${orderCount})">Usuń</button>
                         </div>
                     </div>
                 </div>
@@ -301,6 +310,13 @@
 
         document.querySelector(".edit-order-form").style.display = "none";
         document.querySelector(".add-order-form").style.display = "block";
+      }
+
+      function deleteOrder(orderId) {
+        const orderCard = document.getElementById(`order${orderId}`);
+        if (orderCard) {
+          orderCard.remove();
+        }
       }
 
       document.getElementById("newOrderForm").addEventListener("submit", addOrder);
