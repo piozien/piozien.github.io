@@ -64,6 +64,9 @@
       .edit-order-form {
         display: none;
       }
+      .card.overdue {
+        border: 2px solid red;
+      }
     </style>
   </head>
   <body>
@@ -97,6 +100,10 @@
                 <div class="dish-info">
                   <strong>Potrawa:</strong> Pizza <strong>Składniki:</strong> Ser, pomidory, bazylia
                 </div>
+                <div class="order-time">
+                  <strong>Przewidywany czas oczekiwania:</strong>
+                  <span id="waitingTime1">10</span> min
+                </div>
                 <div class="status-buttons mt-3">
                   <button class="btn btn-success" onclick="changeStatus(1, 'Zrealizowane')">
                     Zrealizowane
@@ -109,7 +116,7 @@
                   </button>
                   <button
                     class="btn btn-secondary"
-                    onclick="editOrder(1, 5, 3, 'Pizza', 'Ser, pomidory, bazylia')"
+                    onclick="editOrder(1, 5, 3, 'Pizza', 'Ser, pomidory, bazylia', 10)"
                   >
                     Edytuj
                   </button>
@@ -138,6 +145,17 @@
               <div class="form-group">
                 <label for="ingredients">Składniki</label>
                 <input type="text" class="form-control" id="ingredients" name="ingredients" />
+              </div>
+              <div class="form-group">
+                <label for="waitingTime">Przewidywany czas oczekiwania (minuty)</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="waitingTime"
+                  name="waitingTime"
+                  value="10"
+                  required
+                />
               </div>
               <button type="submit" class="btn btn-primary">Dodaj zamówienie</button>
             </form>
@@ -177,6 +195,16 @@
                   class="form-control"
                   id="editIngredients"
                   name="editIngredients"
+                />
+              </div>
+              <div class="form-group">
+                <label for="editWaitingTime">Przewidywany czas oczekiwania (minuty)</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="editWaitingTime"
+                  name="editWaitingTime"
+                  required
                 />
               </div>
               <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
@@ -234,6 +262,7 @@
         const chair = document.getElementById("chair").value;
         const dish = document.getElementById("dish").value;
         const ingredients = document.getElementById("ingredients").value;
+        const waitingTime = document.getElementById("waitingTime").value;
         const orderTime = new Date().toLocaleString();
 
         orderCount++;
@@ -248,7 +277,7 @@
                             <strong>Status:</strong> <span id="status${orderCount}">Nowe</span>
                         </div>
                         <div class="order-time">
-                            <strong>Data złożenia zamówienia:</strong> <span>${orderTime}</span>
+                            <strong>Data złożenia zamówienia:</strong> <span id="orderTime${orderCount}">${orderTime}</span>
                         </div>
                         <div class="table-chair-info">
                             <strong>Stolik:</strong> ${table}, <strong>Krzesło:</strong> ${chair}
@@ -257,11 +286,14 @@
                             <strong>Potrawa:</strong> ${dish}
                             <strong>Składniki:</strong> ${ingredients}
                         </div>
+                        <div class="order-time">
+                            <strong>Przewidywany czas oczekiwania:</strong> <span id="waitingTime${orderCount}">${waitingTime}</span> min
+                        </div>
                         <div class="status-buttons mt-3">
                             <button class="btn btn-success" onclick="changeStatus(${orderCount}, 'Zrealizowane')">Zrealizowane</button>
                             <button class="btn btn-warning" onclick="changeStatus(${orderCount}, 'W trakcie realizacji')">W trakcie realizacji</button>
                             <button class="btn btn-info" onclick="changeStatus(${orderCount}, 'Gotowe do odbioru')">Gotowe do odbioru</button>
-                            <button class="btn btn-secondary" onclick="editOrder(${orderCount}, ${table}, ${chair}, '${dish}', '${ingredients}')">Edytuj</button>
+                            <button class="btn btn-secondary" onclick="editOrder(${orderCount}, ${table}, ${chair}, '${dish}', '${ingredients}', ${waitingTime})">Edytuj</button>
                             <button class="btn btn-danger" onclick="deleteOrder(${orderCount})">Usuń</button>
                         </div>
                     </div>
@@ -273,12 +305,13 @@
         document.getElementById("newOrderForm").reset();
       }
 
-      function editOrder(orderId, table, chair, dish, ingredients) {
+      function editOrder(orderId, table, chair, dish, ingredients, waitingTime) {
         document.getElementById("editOrderId").value = orderId;
         document.getElementById("editTable").value = table;
         document.getElementById("editChair").value = chair;
         document.getElementById("editDish").value = dish;
         document.getElementById("editIngredients").value = ingredients;
+        document.getElementById("editWaitingTime").value = waitingTime;
 
         document.querySelector(".add-order-form").style.display = "none";
         document.querySelector(".edit-order-form").style.display = "block";
@@ -292,14 +325,18 @@
         const chair = document.getElementById("editChair").value;
         const dish = document.getElementById("editDish").value;
         const ingredients = document.getElementById("editIngredients").value;
+        const waitingTime = document.getElementById("editWaitingTime").value;
 
-        const orderCard = document.querySelector(`#orders .card:nth-child(${orderId})`);
+        const orderCard = document.getElementById(`order${orderId}`);
         orderCard.querySelector(
           ".table-chair-info"
         ).innerHTML = `<strong>Stolik:</strong> ${table}, <strong>Krzesło:</strong> ${chair}`;
         orderCard.querySelector(
           ".dish-info"
         ).innerHTML = `<strong>Potrawa:</strong> ${dish}<strong>Składniki:</strong> ${ingredients}`;
+        orderCard.querySelector(
+          ".order-time"
+        ).innerHTML = `<strong>Przewidywany czas oczekiwania:</strong> <span id="waitingTime${orderId}">${waitingTime}</span> min`;
 
         document.querySelector(".edit-order-form").style.display = "none";
         document.querySelector(".add-order-form").style.display = "block";
@@ -312,11 +349,28 @@
         }
       }
 
+      function checkOrderTimes() {
+        const now = new Date();
+        const orders = document.querySelectorAll("#orders .card");
+        orders.forEach((order) => {
+          const orderId = order.id.replace("order", "");
+          const orderTime = new Date(order.querySelector(".order-time span").textContent);
+          const waitingTime = parseInt(order.querySelector(`#waitingTime${orderId}`).textContent);
+          const diffMinutes = (now - orderTime) / (1000 * 60);
+          if (diffMinutes > waitingTime) {
+            order.classList.add("overdue");
+          } else {
+            order.classList.remove("overdue");
+          }
+        });
+      }
+
       document.getElementById("newOrderForm").addEventListener("submit", addOrder);
       document.getElementById("editOrderForm").addEventListener("submit", saveEditedOrder);
 
       setInterval(updateTime, 1000);
       setInterval(updateShiftEndTime, 1000);
+      setInterval(checkOrderTimes, 1000);
       updateOrderTimes();
       updateShiftEndTime();
     </script>
