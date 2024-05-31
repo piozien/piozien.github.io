@@ -150,6 +150,9 @@ body {
   vertical-align: top;
   padding-bottom: 10px;
 }
+.content td {
+  border: 2px solid white;
+}
 
 .content table td:first-of-type {
   width: 200px;
