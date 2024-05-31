@@ -59,11 +59,11 @@ body {
 }
 
 .sidebar-toggle {
-  width: 40px;
+  width: 100px;
   height: 40px;
   background-color: rgb(255, 255, 255);
   position: absolute;
-  left: -40px;
+  left: -105px;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -71,6 +71,17 @@ body {
   align-items: center;
   cursor: pointer;
   border-radius: 50%;
+}
+
+.sidebar-arrow {
+  width: 24px;
+  height: 24px;
+}
+
+.menu-text {
+  margin-left: 8px;
+  font-size: 16px;
+  color: black;
 }
 
 .sidebar-arrow {
@@ -142,6 +153,10 @@ body {
 
 .content table td:first-of-type {
   width: 200px;
+}
+a:link,
+a:visited {
+  color: white;
 }
 
 .diagram {
