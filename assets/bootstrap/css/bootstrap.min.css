@@ -345,6 +345,11 @@ sub {
 sup {
   top: -0.5em;
 }
+.col-md-6{
+  background: rgba(255, 255, 255, 0.815);
+  padding: 20px;
+}
+
 a {
   color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
   text-decoration: underline;
@@ -11481,5 +11486,6 @@ fieldset:disabled .btn {
   .d-print-none {
     display: none !important;
   }
+  
 }
 
