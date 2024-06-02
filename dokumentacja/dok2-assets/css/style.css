@@ -149,6 +149,7 @@ body {
   text-align: left;
   vertical-align: top;
   padding-bottom: 10px;
+  padding: 10px;
 }
 .content td {
   border: 2px solid white;
@@ -208,6 +209,41 @@ a:visited {
   height: 40px;
   vertical-align: middle;
   margin-left: 10px;
+}
+.button-pdf {
+  margin: 30px auto;
+  padding: 30px;
+  max-width: fit-content;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  border-radius: 200px;
+  position: inherit;
+  display: inline-block;
+  margin-right: 100px;
+  font-weight: bold;
+}
+
+.button-pdf img {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+.button-pdf a {
+  color: #000000;
+  text-decoration: bold;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.button-pdf a:hover {
+  text-decoration: none;
+}
+
+.button-pdf a:hover,
+.button-pdf a:active,
+.button-pdf a:focus {
+  outline: 0;
 }
 
 .button a {

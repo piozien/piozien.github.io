@@ -47,14 +47,19 @@
     <div class="content">
         <h1>Rozdział I - Analiza Biznesowa</h1>
         <h2>Wstęp teoretyczny</h2>
-        <p>Restauracja obsługująca gości na miejscu i zamówienia na wynos. W skutek
-            rosnącego zapotrzebowania na usługi gastronomiczne właściciel chce usprawnić działanie
-            biznesu przez ułatwienie pracy personelu oraz poprawę doświadczeń klientów na skutek
-            wprowadzenia ujednoliconego systemu.</p>
+        <p>Klienci restauracji mają możliwość rezerwacji stolików, składania zamówień
+          i płatności w formie online lub osobiście u kelnera. Zamawianie zawczasu daje im możliwość
+          uniknięcia sytuacji braku składników na potrawę, którą chcieliby zjeść, a także opcje przyjścia
+          już “na gotowe”. Zmniejszając kolejki. Informacje te trafiają kolejno do kelnerów, którzy będą
+          wiedzieli jakie stolik są wolne, a które trzeba przygotować dla następnych klientów. Złożone
+          zamówienia docierają do kucharzy umożliwiając im sprawniejsze przygotowanie składników
+          i potraw, a w momencie ich powtarzania się między klientami mają możliwość przygotowania
+          większej ilości porcji dania. Zmniejsza się także ryzyko zgubienia zamówienia, gdy jest ono
+          w systemie na ekranie, niżeli zapisane na kartce.</p>
         <h2>Opis kontekstu dziedziny problemowej</h2>
         <p>Zarządzanie restauracją wymaga skutecznego zarządzania pracownikami,
-            zamówieniami i rezerwacjami. System informatyczny pomoże w automatyzacji tych procesów,
-            usprawniając codzienne operacje i optymalizując wydajność.</p>
+          zamówieniami i rezerwacjami. System informatyczny pomoże w automatyzacji tych procesów,
+          usprawniając codzienne operacje i optymalizując wydajność.</p>
             <h4>Opis Wymagań Funkcjonalnych</h4>
         <p>
             1. Rezerwacje stolików:
@@ -69,7 +74,7 @@
             <ul>
                 <li>Elektroniczne menu.</li>
                 <li>Możliwość składania zamówień bezpośrednio przez klientów.</li>
-                <li>Śledzenie zamówienie przez klientów.</li>
+                <li>Śledzenie zamówienia przez klientów.</li>
                 <li>Integracja z systemami płatności online.</li>
                 <li>Możliwość modyfikacji zamówień i dostosowywania potraw do potrzeb.</li>
             </ul>
@@ -77,10 +82,61 @@
         <p>
             3. Zarządzanie kuchnią:
             <ul>
-                <li>Monitorowanie stanu realizacja zamówień.</li>
+                <li>Monitorowanie stanu realizacji zamówień.</li>
                 <li>Automatyczne powiadomienia dla personelu kuchennego o nowych zamówieniach.</li>
             </ul>
-        </p>  
+        </p>
+        <h4>
+          Opis wymagań niefunkcjonalnych:
+        </h4>  
+        <p>
+          1. Wydajność
+            <ul>
+                <li>System musi obsługiwać co najmniej 200 jednoczesnych użytkowników bez spadku
+                  wydajności.</li>
+                <li>Czas odpowiedzi na operacje (rezerwacje, zamówienia) nie może przekraczać 2
+                  sekund.</li>
+            </ul>
+            </p>
+            <p>
+            2. Skalowalność
+            <ul>
+              <li>Możliwość łatwej rozbudowy systemu o dodatkowe moduły i funkcje.</li>
+              <li>Obsługa rosnącej liczby użytkowników i zamówień w miarę rozwoju restauracji.</li>
+          </ul>
+            </p>
+            <p>
+          3. Bezpieczeństwo
+          <ul>
+            <li>Ochrona danych klientów przed nieautoryzowanym dostępem.</li>
+            <li>Zabezpieczenia przed atakami typu SQL injection, XSS.</li>
+            <li>Regularne kopie zapasowe danych.</li>
+          </ul>
+            </p>
+            <p>
+          4. Użyteczność:
+          <li>Intuicyjny interfejs użytkownika dla pracowników restauracji i klientów.</li>
+          <li>Szkolenie dla personelu w zakresie obsługi systemu.</li>
+        </p>
+        <h4>
+          Opis użytkowników:
+        </h4>
+        <p>
+          1.Klienci
+          <ul>
+            <li>Osoby rezerwujące stoliki na różne okazje (kolacje, imprezy rodzinne, spotkania
+              biznesowe).</li>
+            <li>Osoby korzystające z elektronicznego menu i składający zamówienia bezpośrednio
+              przy stolikach.</li>
+          </ul>
+          </p>
+          <p>
+          2. Personel restauracji
+          <li>Kelnerzy obsługujący rezerwacje, przyjmujący zamówienia i przetwarzający
+            płatności.</li>
+          <li>Kucharze odpowiedzialni za przygotowywanie potraw zgodnie z zamówieniami.
+            </li>
+        </p>
     </div>
     <div class="diagram">
         <h2>Diagram 1. Kontekstowy diagram DPU</h2>
