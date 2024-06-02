@@ -137,6 +137,11 @@ body {
   color: white;
   text-align: left;
 }
+.strona {
+  color: white;
+  font-weight: bold;
+  padding-top: 40px;
+}
 .content ol {
   color: white;
   text-align: left;
@@ -192,7 +197,22 @@ a:visited {
   z-index: 999;
 }
 
-.button {
+.button-container {
+  text-align: center;
+}
+
+.button,
+.button2 {
+  display: inline-block;
+  margin: 30px;
+  padding: 30px;
+  max-width: fit-content;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  border-radius: 200px;
+  position: inherit;
+}
+.button-main {
   margin: 30px auto;
   padding: 30px;
   max-width: fit-content;
@@ -204,12 +224,17 @@ a:visited {
   margin-right: 100px;
 }
 
-.button img {
+.button img,
+.button2 img,
+.button-pdf img,
+.button-main img{
   width: 40px;
   height: 40px;
   vertical-align: middle;
   margin-left: 10px;
 }
+
+
 .button-pdf {
   margin: 30px auto;
   padding: 30px;
@@ -223,42 +248,35 @@ a:visited {
   font-weight: bold;
 }
 
-.button-pdf img {
-  width: 40px;
-  height: 40px;
-  vertical-align: middle;
-  margin-left: 10px;
-}
-.button-pdf a {
-  color: #000000;
-  text-decoration: bold;
-  display: inline-block;
-  text-decoration: none;
-}
 
-.button-pdf a:hover {
-  text-decoration: none;
-}
-
-.button-pdf a:hover,
-.button-pdf a:active,
-.button-pdf a:focus {
-  outline: 0;
-}
-
-.button a {
+.button a,
+.button2 a,
+.button-pdf a,
+.button-main a {
   color: #000000;
   display: inline-block;
   text-decoration: none;
 }
 
-.button a:hover {
+.button a:hover,
+.button-pdf a:hover
+.button2 a:hover,
+.button-main a:hover {
   text-decoration: none;
 }
 
 .button a:hover,
 .button a:active,
-.button a:focus {
+.button a:focus,
+.button-pdf a:hover,
+.button-pdf a:active,
+.button-pdf a:focus,
+.button-main a:hover,
+.button-main a:active,
+.button-main a:focus,
+.button-2 a:hover,
+.button-2 a:active,
+.button-2 a:focus {
   outline: 0;
 }
 
